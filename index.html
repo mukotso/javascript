@@ -93,7 +93,7 @@
       </div> -->
 
 
-      <form class="w-full max-w-lg mt-10"  id="createCarForm" onsubmit="submit();">
+      <form class="w-full max-w-lg mt-10"  id="createCarForm" onsubmit="onSubmit();">
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -133,15 +133,14 @@
         
           </div>
        
-
           <button type="submit" class=" mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
            SUBMIT
           </button>
         </div>
       </form>
       
-      <div class="mainTable"></div>
-        <table>
+      <div class="mainTable">
+        <table id="carsTable">
           <thead id="carTable">
             <tr>
               <th>Name</th>
@@ -149,6 +148,7 @@
               <th>Type</th>
               <th>Number Plate</th>
               <th>Capacity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>

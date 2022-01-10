@@ -1,7 +1,9 @@
 let selectedRow = null;
-function submit(e){
-    event.preventDefault();
-    var name,color,type,number_plate,capacity;
+
+//hanlde onsubmit
+function onSubmit(e){
+  event.preventDefault();
+    let name,color,type,number_plate,capacity;
       name = document.getElementById("name").value;
       color = document.getElementById("color").value;
       type = document.getElementById("type").value;
@@ -11,10 +13,12 @@ function submit(e){
         alert("Invalid input. Please enter all fields.\n Capacity be numbers.");
         return;
       }else{
-        let newCarData = newCarData();
+        let carData = newCarData();
         if (selectedRow === null) {
+          //if no row swlwcted create a car
           createNewCar(carData);
         } else {
+          //update details
             updateCarDetails(carData)
         }
         resetForm();
@@ -24,20 +28,24 @@ function submit(e){
 }
 
 
+
+//set new car data to carData 
 function newCarData(){
-    let carData = {};
-    formData["name"] = document.getElementById("name").value;
-    formData["color"] =document.getElementById("color").value;
-    formData["type"] = document.getElementById("type").value;
-    formData["number_plate"] = document.getElementById("number_plate").value;
-    formData["capacity"] = parseInt(document.getElementById("capacity").value);
-   
-    return carData;
+  let carData = {};
+  carData["name"] = document.getElementById("name").value;
+  carData["color"] =document.getElementById("color").value;
+  carData["type"] = document.getElementById("type").value;
+  carData["number_plate"] = document.getElementById("number_plate").value;
+  carData["capacity"] = parseInt(document.getElementById("capacity").value);
+ 
+  return carData;
 }
 
 
+
+//create a a car
 function createNewCar(carData){
-    let table = document.getElementById("createCarForm").getElementsByTagName('tbody')[0];
+    let table = document.getElementById("carsTable").getElementsByTagName('tbody')[0];
     let newRow = table.insertRow(table.length);
     let cell1 = newRow.insertCell(0);
     cell1.innerHTML = carData.name;
@@ -49,12 +57,12 @@ function createNewCar(carData){
     cell4.innerHTML = carData.number_plate;
     let cell5 = newRow.insertCell(4);
     cell5.innerHTML = carData.capacity;
-    let cell6 = newRow.insertCell(6);
-    cell6.innerHTML = `<a class="tblBtn" onClick="editCarDetails(this)">Edit Car Details</a>
-                       <a class="tblBtn" onClick="deleteCarDetails(this)">Delete Car</a>`;
+    let cell6 = newRow.insertCell(5);
+    cell6.innerHTML = `<button class="tblBtn  bg-blue-500 hover:bg-blue-700 text-white font-boldrounded" onClick="editCarDetails(this)">Edit</button>
+                       <a class="tblBtn btn bg-red-800 " onClick="deleteCarDetails(this)">Delete</a>`;
 }
 
-// To Reset the data of fill input
+// reset inputs
 function resetForm(){
     document.getElementById("name").value="";
     document.getElementById("color").value="";
@@ -63,7 +71,8 @@ function resetForm(){
     document.getElementById("capacity").value="";
 }
 
-// For Edit operation
+// set data to input fields
+//then edit
 function editCarDetails(td){
     selectedRow = td.parentElement.parentElement;
     document.getElementById("name").value= selectedRow.cells[0].innerHTML;
@@ -72,6 +81,7 @@ function editCarDetails(td){
     document.getElementById("number_plate").value= selectedRow.cells[3].innerHTML;
     document.getElementById("capacity").value= selectedRow.cells[4].innerHTML;
 }
+
 function updateCarDetails(carData){
     selectedRow.cells[0].innerHTML = carData.name;
     selectedRow.cells[1].innerHTML = carData.color;
@@ -79,10 +89,11 @@ function updateCarDetails(carData){
     selectedRow.cells[3].innerHTML = carData.number_plate;
     selectedRow.cells[4].innerHTML = carData.capacity;
 }
+//delete a car
 function deleteCarDetails(td){
     if(confirm('Confirm to delete this car ?')){
         row = td.parentElement.parentElement;
-        document.getElementById('createCarForm').deleteRow(row.rowIndex);
+        document.getElementById('carsTable').deleteRow(row.rowIndex);
         resetForm();
     }
 }
