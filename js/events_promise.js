@@ -1,5 +1,3 @@
-// mouseover and mouse out events
-
 
  function displayDate() {
     document.getElementById("time").innerHTML = Date();
@@ -23,10 +21,18 @@
         alert("doubleClick performed")
         }
 
-function scroll() {
-alert("scroll performed")
-}
-  
+    function scroll() {
+    alert("scroll performed")
+    }
+
+    function checkCookies() {
+        if (navigator.cookieEnabled == true) {
+          alert('Cokkies is enabled');
+        } else {
+        alert('cookies not enabled');
+        }
+      }
+
    // Create a new custom event
    var event = new CustomEvent('madeActive');
     var element = document.getElementById('my-button');
@@ -36,13 +42,7 @@ alert("scroll performed")
         alert('Custom event working');
     })
 
-    function checkCookies() {
-        if (navigator.cookieEnabled == true) {
-          alert('Cokkies is enabled');
-        } else {
-        alert('cookies not enabled');
-        }
-      }
+  
 
 //   dynamic typing
 var x=4;
@@ -79,7 +79,6 @@ var power = function(x, y) {
   };
   
  
-  
   // Starting promise chain
   power(2,3)
     .then((power) => {
