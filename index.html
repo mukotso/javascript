@@ -25,13 +25,14 @@
     }
   </style>
 </head>
-<body class="container mx-auto px-4">
+<body class="container mx-auto px-4" onload="checkCookies()" >
+<div onscroll="scroll()">
 
    
 
-    <p class="text-3xl">Click the following button to see the function in action</p>  
+    <!-- <p class="text-3xl">Click the following button to see the function in action</p>  
  
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onclick = "loginForm()">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onclick = "loginForm()"  onmouseover = "over()" onmouseout = "out()">
       LOGIN
     </button>
 <br>
@@ -53,49 +54,19 @@
 
     <button class="mt-5 mb-10 bg-red-500 hover:bg-marron-700 text-white font-bold py-2 px-4 rounded" onclick ="failStrict()">
       FAIL STRICT
-    </button>
+    </button> -->
 
    
 
    
-    <h1>JAVASCRIPT CRUD</h1>
-
-    <!-- <div class="jumbotron">  
-        <div class="formContainer text-center">
-         <h3>Enter Product Information</h3>
-          <form id="frm" class="formElem form-inline">
-              <div class="form-group">
-                <label>Name</label>
-                <input id="name" class="form-control" placeholder="Name" type="text" >
-              </div>
-              <div class="form-group">
-                <label>Color</label>
-                <input id="color" class="form-control" placeholder="color" type="text" >
-              </div>
-              <div class="form-group">
-                <label>Type</label>
-                <input id="type" class="form-control" placeholder="car type e.g pick-up" type="text">
-              </div>
-
-              <div class="form-group">
-                <label>Registration Number </label>
-                <input id="number_plate" class="form-control" placeholder="Number plate e.g KEG 400G" type="text" >
-              </div>
-
-              <div class="form-group">
-                <label> Capacity</label>
-                <input id="capacity" class="form-control" placeholder="car capacity" type="number"   >
-              </div>
-
-          </form>
-          <button type="button" class="submitButton btn btn-primary" onClick="submit()">ADD CAR</button>
-        </div>
-      </div> -->
-
+    <h1 class="mt-10">JAVASCRIPT EVENTS AND PROMISES</h1>
+<br>
+<br>
+    <h3>Onload event implemented on first loading the screen to show use of cookies</h3>
 
       <form class="w-full max-w-lg mt-10"  id="createCarForm" onsubmit="onSubmit();">
         <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <!-- <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
               Name
             </label>
@@ -108,17 +79,26 @@
             </label>
             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="color" type="text" placeholder="white">
           </div>
-        </div>
+        </div> -->
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              Number Plate
+              On key Press event 
             </label>
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="number_plate" type="text" placeholder="e.g KAG 400F">
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="number_plate" type="text" placeholder="" onkeypress="keyPress()">
+           
+          </div>
+        <br>
+        <hr>
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Change to uppercase  onchange
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="number_plate" type="text" placeholder="e.g KAG 400F" onchange="changeUpperCase()">
            
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-2">
+        <!-- <div class="flex flex-wrap -mx-3 mb-2">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Type
@@ -132,14 +112,14 @@
             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="capacity" type="number" placeholder="5">
         
           </div>
-       
-          <button type="submit" class=" mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        -->
+          <!-- <button type="submit" class=" mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
            SUBMIT
-          </button>
+          </button> -->
         </div>
       </form>
       
-      <div class="mainTable">
+      <!-- <div class="mainTable">
         <table id="carsTable">
           <thead id="carTable">
             <tr>
@@ -156,12 +136,27 @@
           </tbody>
         </table>
 
-      </div>
-
-    
+      </div> -->
+      <h3>Custom events implemented on double click event</h3>
+      <button class="mt-5 bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" ondblclick="doubleClick()">
+       DOUBLE CLICK
+      </button>
+    <hr>
+    <h3>onmousover and onmouseout events implementation</h3>
+    <button class="mt-5 bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onmouseover ="displayDate()" onmouseout ="hideDisplayDate()">
+      WHAT'S IS THE TIME NOW
+    </button>
+    <p id="time"></p>
+<br><br>
+<hr>
+<h3>Custom events implemented on button click</h3>
+    <button class="mt-5 bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="my-button">
+     BUTTON WITH CUSTOM EVENT
+    </button>
    <!-- import js -->
    <script src="js/index.js"></script> 
    <script src="js/crud.js"></script> 
    <script src="js/events_promise.js"></script> 
+  </div>
 </body>
 </html>

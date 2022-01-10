@@ -23,6 +23,10 @@ th {
 input[type=text]:focus {
     border-color:#333;
 }
+.active{
+  padding: 10px;
+  color:aquamarine;
+}
 
 input[type=submit] {
     padding:5px 15px; 
